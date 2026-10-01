@@ -12,6 +12,16 @@
 
   html {
     -webkit-text-size-adjust: 100%;
+    /* Anchor links glide down the page instead of jumping. */
+    scroll-behavior: smooth;
+    /* Keeps each section heading clear of the sticky navbar. */
+    scroll-padding-top: 4.5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 
   body {
