@@ -9,13 +9,16 @@ import profile from '../data/profile.js'
  */
 export default function Hero() {
   return (
-    <section id="home" className="scroll-mt-20">
+    <section id="home" aria-labelledby="home-title" className="scroll-mt-20">
       <div className="mx-auto flex min-h-[75vh] w-full max-w-5xl flex-col justify-center px-6 py-24 sm:py-28">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">
           Hi, my name is
         </p>
 
-        <h1 className="mt-4 text-4xl font-bold tracking-tight text-balance text-neutral-50 sm:text-6xl">
+        <h1
+          id="home-title"
+          className="mt-4 text-4xl font-bold tracking-tight text-balance text-neutral-50 sm:text-6xl"
+        >
           {profile.name}
         </h1>
 

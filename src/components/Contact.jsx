@@ -27,7 +27,7 @@ export default function Contact() {
 
           <div className="flex items-center gap-3">
             <SocialLinks />
-            <span className="text-sm text-neutral-500">or find me here</span>
+            <span className="text-sm text-neutral-400">or find me here</span>
           </div>
         </div>
       </div>

@@ -43,7 +43,7 @@ export default function Skills() {
         ))}
       </div>
 
-      <p className="mt-10 text-sm text-neutral-500">
+      <p className="mt-10 text-sm text-neutral-400">
         Placeholder skills list — replace the groups above with your own stack.
       </p>
     </Section>

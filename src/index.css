@@ -16,6 +16,10 @@
     scroll-behavior: smooth;
     /* Keeps each section heading clear of the sticky navbar. */
     scroll-padding-top: 4.5rem;
+    /* Dark UI for form controls, scrollbars and browser chrome. */
+    color-scheme: dark;
+    /* Matches the page background so overscroll never flashes white. */
+    background-color: #0a0a0a;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -47,5 +51,15 @@
   a {
     color: inherit;
     text-decoration: none;
+  }
+
+  /*
+   * One consistent, high-contrast keyboard focus ring (accent green reads
+   * ~10:1 on the dark background). Only shows for keyboard navigation, never
+   * on mouse clicks.
+   */
+  :focus-visible {
+    outline: 2px solid #34d399;
+    outline-offset: 3px;
   }
 }

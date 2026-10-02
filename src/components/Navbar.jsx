@@ -1,11 +1,14 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { CloseIcon, MenuIcon } from './Icons.jsx'
 import profile from '../data/profile.js'
 
 /*
  * Sticky top bar: your name on the left, anchor links on the right.
  * The links point at the section ids composed in src/App.jsx
- * (#home, #about, #skills, #projects, #contact).
+ * (#home, #about, #skills, #projects, #contact). Scrolling to them is handled
+ * in CSS (scroll-behavior + scroll-padding-top in src/index.css) so the sticky
+ * bar never covers a heading, and smooth scrolling is disabled for visitors
+ * who prefer reduced motion.
  */
 const links = [
   { id: 'about', label: 'About' },
@@ -16,6 +19,18 @@ const links = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+
+  // Let Escape dismiss the mobile menu, the way a keyboard user expects.
+  useEffect(() => {
+    if (!isOpen) return undefined
+
+    function onKeyDown(event) {
+      if (event.key === 'Escape') setIsOpen(false)
+    }
+
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [isOpen])
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-neutral-950/85 backdrop-blur">

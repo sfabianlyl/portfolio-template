@@ -21,7 +21,7 @@ export default function SocialLinks({ className = 'flex items-center gap-2', ico
               href={href}
               target="_blank"
               rel="noreferrer"
-              aria-label={label}
+              aria-label={`${label} profile, opens in a new tab`}
               className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-neutral-400 transition-colors hover:border-accent hover:text-accent"
             >
               <Icon className={iconClassName} />

@@ -8,7 +8,7 @@ const year = new Date().getFullYear()
 export default function Footer() {
   return (
     <footer className="border-t border-white/10">
-      <div className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-6 py-8 text-sm text-neutral-500 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-6 py-8 text-sm text-neutral-400 sm:flex-row sm:items-center sm:justify-between">
         <p>
           &copy; {year} {profile.name}
         </p>
