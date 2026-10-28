@@ -1,21 +1,16 @@
 import { useEffect, useState } from 'react'
 import { CloseIcon, MenuIcon } from './Icons.jsx'
 import profile from '../data/profile.js'
+import { navLinks } from '../data/navigation.js'
 
 /*
  * Sticky top bar: your name on the left, anchor links on the right.
- * The links point at the section ids composed in src/App.jsx
- * (#home, #about, #skills, #projects, #contact). Scrolling to them is handled
- * in CSS (scroll-behavior + scroll-padding-top in src/index.css) so the sticky
- * bar never covers a heading, and smooth scrolling is disabled for visitors
- * who prefer reduced motion.
+ * The links come from src/data/navigation.js and point at the section ids
+ * composed in src/App.jsx (#home, #about, #skills, #projects, #contact).
+ * Scrolling to them is handled in CSS (scroll-behavior + scroll-padding-top in
+ * src/index.css) so the sticky bar never covers a heading, and smooth
+ * scrolling is disabled for visitors who prefer reduced motion.
  */
-const links = [
-  { id: 'about', label: 'About' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'contact', label: 'Contact' },
-]
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -42,7 +37,7 @@ export default function Navbar() {
 
         {/* Desktop links */}
         <nav aria-label="Main" className="hidden items-center gap-8 md:flex">
-          {links.map((link) => (
+          {navLinks.map((link) => (
             <a
               key={link.id}
               href={`#${link.id}`}
@@ -73,7 +68,7 @@ export default function Navbar() {
           className="border-t border-white/10 md:hidden"
         >
           <ul className="mx-auto flex w-full max-w-5xl flex-col px-6 py-2">
-            {links.map((link) => (
+            {navLinks.map((link) => (
               <li key={link.id}>
                 <a
                   href={`#${link.id}`}
