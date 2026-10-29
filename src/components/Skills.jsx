@@ -1,30 +1,17 @@
 import Section from './Section.jsx'
+import { content, skillGroups, skillsNote } from '../data/index.js'
 
 /*
- * Technologies as tag pills, loosely grouped. Keep the list short and honest —
- * the stack you would happily be interviewed on. EDIT ME.
+ * Technologies as tag pills, loosely grouped. The heading comes from
+ * src/data/content.js (content.skills); the groups and the optional closing
+ * line come from src/data/skills.js. Keep the list short and honest — the stack
+ * you would happily be interviewed on.
  */
-const skillGroups = [
-  {
-    id: 'languages',
-    label: 'Languages',
-    skills: ['JavaScript', 'TypeScript', 'HTML', 'CSS', 'SQL'],
-  },
-  {
-    id: 'frameworks',
-    label: 'Frameworks & Libraries',
-    skills: ['React', 'Node.js', 'Express', 'Tailwind CSS', 'Vitest'],
-  },
-  {
-    id: 'tools',
-    label: 'Tools & Platform',
-    skills: ['Git', 'GitHub Actions', 'Docker', 'PostgreSQL', 'Figma'],
-  },
-]
-
 export default function Skills() {
+  const { eyebrow, title } = content.skills
+
   return (
-    <Section id="skills" eyebrow="Skills" title="Tools I reach for">
+    <Section id="skills" eyebrow={eyebrow} title={title}>
       <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
         {skillGroups.map((group) => (
           <div key={group.id}>
@@ -43,9 +30,8 @@ export default function Skills() {
         ))}
       </div>
 
-      <p className="mt-10 text-sm text-neutral-400">
-        Placeholder skills list — replace the groups above with your own stack.
-      </p>
+      {/* Small print under the groups — only rendered when skillsNote has text. */}
+      {skillsNote && <p className="mt-10 text-sm text-neutral-400">{skillsNote}</p>}
     </Section>
   )
 }

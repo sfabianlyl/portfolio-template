@@ -11,6 +11,9 @@
  *
  * Order matters: the links render top to bottom (navbar) and left to right
  * (footer) exactly as written here.
+ *
+ * External links (GitHub, a CV) are not here — socials.js owns the social
+ * icons and site.js owns the remaining site-level URLs.
  */
 
 export const navLinks = [
@@ -21,13 +24,21 @@ export const navLinks = [
 ]
 
 /*
- * The footer only repeats the sections worth jumping back to, plus #home,
- * which is the hero at the very top of the page.
+ * The footer only repeats the sections worth jumping back to, so it borrows
+ * those link objects from navLinks instead of restating their labels: rename
+ * 'Projects' above and both bars change together. `navLink()` returns undefined
+ * for an id that is no longer in the navbar and the filter drops that footer
+ * entry, so nothing can render a half-empty link.
+ *
+ * A footer-only link is just a literal object — 'Back to top' points at #home,
+ * the hero at the very top of the page, which the navbar does not list.
  */
+const navLink = (id) => navLinks.find((link) => link.id === id)
+
 export const footerLinks = [
-  { id: 'about', label: 'About' },
-  { id: 'projects', label: 'Projects' },
+  navLink('about'),
+  navLink('projects'),
   { id: 'home', label: 'Back to top' },
-]
+].filter(Boolean)
 
 export default { navLinks, footerLinks }

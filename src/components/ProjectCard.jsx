@@ -1,15 +1,17 @@
 import { ExternalLinkIcon } from './Icons.jsx'
+import { content } from '../data/index.js'
 
 /*
  * A single project card. Fills the height of its grid cell so the links always
  * sit on the same baseline. Everything visible comes from src/data/projects.js:
  * `badge`, `year`, `role` and `links` are all optional — nothing renders for the
  * ones you leave out.
+ *
+ * The only words here are the link labels, which live with the other section
+ * copy in src/data/content.js (content.projects.linkLabels). A `links` key that
+ * is not listed there is shown as its own name, so an empty object still works.
  */
-const linkLabels = {
-  demo: 'Live site',
-  source: 'Source',
-}
+const linkLabels = content.projects.linkLabels || {}
 
 export default function ProjectCard({
   title,

@@ -1,20 +1,21 @@
 import { MailIcon } from './Icons.jsx'
 import Section from './Section.jsx'
 import SocialLinks from './SocialLinks.jsx'
-import profile from '../data/profile.js'
+import { content, profile } from '../data/index.js'
 
 /*
  * The "say hello" section. No form on purpose — a mailto link keeps the page
- * static. EDIT ME: the email lives in src/data/profile.js.
+ * static. The heading, the invitation and the line beside the icons come from
+ * src/data/content.js (content.contact), the email from src/data/profile.js and
+ * the icons from src/data/socials.js.
  */
 export default function Contact() {
+  const { eyebrow, title, body, socialLabel } = content.contact
+
   return (
-    <Section id="contact" eyebrow="Contact" title="Let's build something together">
+    <Section id="contact" eyebrow={eyebrow} title={title}>
       <div className="max-w-prose">
-        <p className="text-base leading-relaxed text-pretty text-neutral-400">
-          Placeholder invitation. Tell people why they should reach out — a role you are open to,
-          a freelance service, or simply a conversation about an idea they have.
-        </p>
+        <p className="text-base leading-relaxed text-pretty text-neutral-400">{body}</p>
 
         <div className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-center">
           <a
@@ -27,7 +28,8 @@ export default function Contact() {
 
           <div className="flex items-center gap-3">
             <SocialLinks />
-            <span className="text-sm text-neutral-400">or find me here</span>
+            {/* Hidden with null in src/data/content.js if you do not want it. */}
+            {socialLabel && <span className="text-sm text-neutral-400">{socialLabel}</span>}
           </div>
         </div>
       </div>

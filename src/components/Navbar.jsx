@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import { CloseIcon, MenuIcon } from './Icons.jsx'
-import profile from '../data/profile.js'
-import { navLinks } from '../data/navigation.js'
+import { navLinks, profile } from '../data/index.js'
 
 /*
  * Sticky top bar: your name on the left, anchor links on the right.
- * The links come from src/data/navigation.js and point at the section ids
- * composed in src/App.jsx (#home, #about, #skills, #projects, #contact).
+ * The name comes from src/data/profile.js and the links from
+ * src/data/navigation.js; both point at the section ids composed in src/App.jsx
+ * (#home, #about, #skills, #projects, #contact).
  * Scrolling to them is handled in CSS (scroll-behavior + scroll-padding-top in
  * src/index.css) so the sticky bar never covers a heading, and smooth
  * scrolling is disabled for visitors who prefer reduced motion.

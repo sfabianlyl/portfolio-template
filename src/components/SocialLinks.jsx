@@ -1,5 +1,5 @@
 import { DribbbleIcon, ExternalLinkIcon, GitHubIcon, InstagramIcon, LinkedInIcon, XIcon } from './Icons.jsx'
-import { socials } from '../data/socials.js'
+import { socials } from '../data/index.js'
 
 /*
  * The social links from src/data/socials.js rendered as icon buttons.

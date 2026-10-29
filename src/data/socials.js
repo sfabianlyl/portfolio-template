@@ -5,9 +5,10 @@
  * here instead of an edit in two components.
  * ---------------------------------------------------------------------------
  *
- * profile.js imports this array and exposes it as profile.socials (and
- * re-exports it by name), so `import { socials } from '../data/profile.js'`
- * keeps working too. SocialLinks.jsx reads this file directly.
+ * This file is the single source for social hrefs. SocialLinks.jsx reads it
+ * through the barrel (`import { socials } from '../data/index.js'`), and so
+ * should anything else that wants the links — profile.js only holds the name,
+ * role and email now.
  *
  * Each social object supports:
  *   id     {string}  Unique key used by React; keep it lowercase and stable.
