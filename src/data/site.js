@@ -40,8 +40,9 @@ export const site = {
   builtWith: 'Built with React & Tailwind CSS',
   /*
    * Site-level external links. Not the social icons — those live in
-   * profile.socials and are rendered by SocialLinks.jsx. Nothing renders these
-   * two yet; add a consumer (footer, hero) when you want them on the page.
+   * src/data/socials.js (also exposed as profile.socials) and are rendered by
+   * SocialLinks.jsx. Nothing renders these two yet; add a consumer (footer,
+   * hero) when you want them on the page.
    */
   links: {
     // EDIT ME: the public repository backing this portfolio.

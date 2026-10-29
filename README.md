@@ -87,27 +87,35 @@ Deploying = upload the contents of `dist/`. If you host under a sub-path
     │   ├── Contact.jsx         # #contact — mailto CTA + social links
     │   ├── Footer.jsx          # Copyright, footer nav, back to top
     │   ├── Section.jsx         # Shared section shell: anchor id, heading, width, padding
-    │   ├── SocialLinks.jsx     # Renders profile.socials as labelled icon buttons
+    │   ├── SocialLinks.jsx     # Renders src/data/socials.js as labelled icon buttons
     │   └── Icons.jsx           # Inline SVG icons (currentColor, aria-hidden)
     └── data
-        ├── profile.js          # Name, role, email, social links — edited most often
+        ├── profile.js          # Name, role, email — plus the socials re-export
+        ├── socials.js          # Social links (id, label, href, icon) — add networks here
         └── projects.js         # Project cards (id, title, description, tags, links)
 ```
 
 ### Where to customize
 
-| What you want to change            | File                                   |
-| ---------------------------------- | -------------------------------------- |
-| Name, role, email, GitHub/LinkedIn | `src/data/profile.js`                  |
-| Projects (add/remove/edit)         | `src/data/projects.js`                 |
-| Accent color across the whole site | `accent` in `tailwind.config.js`       |
-| Browser tab title + SEO summary    | `index.html`                           |
-| Bio / tagline / contact copy       | `Hero.jsx`, `About.jsx`, `Contact.jsx` |
-| Skills groups                      | `skillGroups` in `Skills.jsx`          |
+| What you want to change             | File                                    |
+| ----------------------------------- | --------------------------------------- |
+| Name, role, email                   | `src/data/profile.js`                   |
+| Social links (add a network)        | `src/data/socials.js`                   |
+| Projects (add/remove/edit)          | `src/data/projects.js`                  |
+| Accent color across the whole site  | `accent` in `tailwind.config.js`        |
+| Browser tab title + SEO summary     | `index.html`                            |
+| Bio / tagline / contact copy        | `Hero.jsx`, `About.jsx`, `Contact.jsx`  |
+| Skills groups                       | `skillGroups` in `Skills.jsx`           |
 
 Adding a project is just another object in the `projects` array; `links` is
 optional — omit `demo`, `source`, or the whole object and those links are not
 rendered.
+
+Adding a social network is one object in `src/data/socials.js`
+(`{ id, label, href, icon }`, e.g. `{ id: 'x', label: 'X', href: '…', icon: 'x' }`).
+The `icon` key selects the artwork from the registry in `SocialLinks.jsx`
+(`dribbble`, `github`, `instagram`, `linkedin`, `x`); an unknown or missing key
+falls back to a generic external-link icon, so a new entry always renders.
 
 ---
 

@@ -1,20 +1,35 @@
-import { ExternalLinkIcon, GitHubIcon, LinkedInIcon } from './Icons.jsx'
-import profile from '../data/profile.js'
+import { DribbbleIcon, ExternalLinkIcon, GitHubIcon, InstagramIcon, LinkedInIcon, XIcon } from './Icons.jsx'
+import { socials } from '../data/socials.js'
 
 /*
- * The social links from src/data/profile.js rendered as icon buttons.
- * Add a new entry to that file (and an icon here) to extend it everywhere.
+ * The social links from src/data/socials.js rendered as icon buttons.
+ *
+ * The `icon` key of an entry picks the artwork out of the registry below; an
+ * unknown or missing key falls back to the generic external-link icon, so a
+ * network added to the data file always renders. To give a new network its
+ * brand mark, add the component to Icons.jsx and one line here — the data file
+ * needs no change at all.
+ *
+ * Accessibility stays here: the icon is decorative (aria-hidden in Icons.jsx)
+ * and the <a> carries the accessible name plus the new-tab hint.
  */
 const icons = {
+  dribbble: DribbbleIcon,
   github: GitHubIcon,
+  instagram: InstagramIcon,
   linkedin: LinkedInIcon,
+  x: XIcon,
+}
+
+function resolveIcon(icon) {
+  return typeof icon === 'string' && Object.hasOwn(icons, icon) ? icons[icon] : ExternalLinkIcon
 }
 
 export default function SocialLinks({ className = 'flex items-center gap-2', iconClassName = 'h-5 w-5' }) {
   return (
     <ul className={className}>
-      {profile.socials.map(({ id, label, href }) => {
-        const Icon = icons[id] || ExternalLinkIcon
+      {socials.map(({ id, label, href, icon }) => {
+        const Icon = resolveIcon(icon)
         return (
           <li key={id}>
             <a
