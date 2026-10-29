@@ -14,7 +14,7 @@
 
 export const profile = {
   // EDIT ME: your full name — navbar, hero <h1> and footer copyright.
-  name: 'Your Name',
+  name: 'Fabian Lee',
   // EDIT ME: what you do — hero sub-heading, plus the tab title and
   // description that src/data/site.js derives from it.
   role: 'Software Developer',
